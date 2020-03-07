@@ -13,3 +13,12 @@ perl parseBLASToutput.pl tcda-blast.out >sra-vs-ncbi.txt
 
 #extracted the novel SRAs in the sra-vs-ncbi.txt file (those with non 100% identities)
 #placed in file novelSRAs-tcda.txt
+
+perl relabel_novelSRAs.pl novelSRAs-tcda.txt tcda-sra.fa >novelSRAs-tcda.fa
+
+#manually decide on labels for the ?
+
+cat novelSRAs-tcda.fa tcda-ncbi.fa >ncbi_plus_sra_tcda.afa
+
+
+
