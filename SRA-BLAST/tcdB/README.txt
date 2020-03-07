@@ -9,3 +9,7 @@ perl parseBLASToutput.pl tcdb-blast.out >sra-vs-ncbi.txt
 
 
 #create plot in R -> plot.R
+
+#extracted the novel SRAs in the sra-vs-ncbi.txt file (those with non 100% identities)
+#placed in file novelSRAs-tcdb.txt
+
