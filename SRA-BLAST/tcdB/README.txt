@@ -7,3 +7,5 @@ blastp -outfmt "6" -query tcdb-sra.fa -db tcdb-ncbi.fa >tcdb-blast.out
 
 perl parseBLASToutput.pl tcdb-blast.out >sra-vs-ncbi.txt
 
+
+#create plot in R -> plot.R
