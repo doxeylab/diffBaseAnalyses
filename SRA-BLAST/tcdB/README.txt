@@ -13,3 +13,17 @@ perl parseBLASToutput.pl tcdb-blast.out >sra-vs-ncbi.txt
 #extracted the novel SRAs in the sra-vs-ncbi.txt file (those with non 100% identities)
 #placed in file novelSRAs-tcdb.txt
 
+
+#next, we will extract the fasta sequences for the novel SRAs and attempt to label them
+#SRAs with identities lower than the specified threshold will be given a "?" label
+
+perl relabel_novelSRAs.pl novelSRAs-tcdb.txt tcdb-sra.fa >novelSRAs-tcdb.fa
+
+#now combine them
+cat novelSRAs-tcdb.fa tcdb-ncbi.fa >ncbi_plus_sra_tcdb.afa
+
+#ran muscle to re-align
+muscle -in ncbi_plus_sra_tcdb.afa -out ncbi_plus_sra_tcdb.muscle.afa
+
+#copied alignment to new file, inspected, and removed sequence (SRA_TcdB_SRS1486145_3405) with C-terminal truncation
+ncbi_plus_sra_tcdb.muscle.final.afa
