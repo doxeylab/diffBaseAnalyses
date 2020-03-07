@@ -11,3 +11,11 @@ python ipg_retrieval.py
 
 #This will create a ipg.txt file that contain all the ipgs for each protein
 
+
+#next, we can now map the presence/absence of TcdA and TcdB sequence clusters/groups onto a tree of NCBI-based C. difficile genomes
+
+#a tree can be found here
+#must first modify the output labels to report the genome accession
+https://www.ncbi.nlm.nih.gov/genome/tree/535
+
+#this will produce the file "genomeTree.nwk"
