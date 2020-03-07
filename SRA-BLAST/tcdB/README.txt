@@ -27,3 +27,14 @@ muscle -in ncbi_plus_sra_tcdb.afa -out ncbi_plus_sra_tcdb.muscle.afa
 
 #copied alignment to new file, inspected, and removed sequence (SRA_TcdB_SRS1486145_3405) with C-terminal truncation
 ncbi_plus_sra_tcdb.muscle.final.afa
+
+#generate new bioNJ tree in R
+
+library(phytools)
+library(ape)
+library(seqinr)
+
+aln <- read.alignment("ncbi_plus_sra_tcdb.muscle.final.afa","FASTA")
+tree <- bionj(dist.alignment(aln,matrix="similarity"))
+tree <- ladderize(midpoint.root(tree))
+write.tree(tree,file="~/Downloads/tcdb.newick")
