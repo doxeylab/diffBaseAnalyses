@@ -4,8 +4,8 @@ This repo contains scripts for the analyses and plots associated with diffBase h
 
 ## Requirements
 
-Standalone BLAST++ - ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
-R - https://www.r-project.org/
+* Standalone BLAST++ - ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
+* R - https://www.r-project.org/
 
 ## Overview
 
