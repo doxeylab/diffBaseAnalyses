@@ -8,9 +8,9 @@ for line in f:
 	accn_numbers.append(str(line))
 
 #email_address
-Entrez.email = "you@youremailaddress.com"
+Entrez.email = ""
 #apikey
-apikey = "yourApikey"
+apikey = ""
 
 #efetch the identical protein groups and write them to ipg.txt
 output_file = open("ipg.txt", 'w')
