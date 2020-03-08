@@ -1,0 +1,1 @@
+cat ../OriginalData/*/*allBLASThits.fa | grep ">" | tr -d ">" | awk '{print $1}' >accessions.txt
