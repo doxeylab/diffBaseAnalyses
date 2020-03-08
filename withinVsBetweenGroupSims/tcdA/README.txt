@@ -1,5 +1,5 @@
 #get data
-cp ../../OriginalData/TcdA/tcdA_relabeled.fa .
+cp ../../OriginalData/TcdA/tcdA_relabeled_trimmed.fa tcdA_relabeled.fa
 
 #make BLAST db and run self-vs-self search
 makeblastdb -in tcdA_relabeled.fa -dbtype 'prot'
