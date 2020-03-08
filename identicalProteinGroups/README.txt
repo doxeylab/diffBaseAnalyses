@@ -4,7 +4,7 @@
 
 #To run the program, will need the accessions.txt that has the accession numbers
 
-cat ../OriginalData/TcdA/tcda.ncbi ../OriginalData/TcdB/tcdb.ncbi >accessions.txt
+cat ../OriginalData/*/*allBLASThits.fa | grep ">" | tr -d ">" | awk '{print $1}' >accessions.txt
 
 #Then run the program
 python ipg_retrieval.py
