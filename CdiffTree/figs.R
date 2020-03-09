@@ -59,7 +59,7 @@ p <- gheatmap(
   ) +
   ggtitle("Toxin A - High Stringency")
 
-ggsave("figs/ToxinA_HighStringency.png", p)
+ggsave("figs/ToxinA_HighStringency.pdf", p)
 
 # TOXIN A - LOW STRINGENCY -------------------------------------------------
 
@@ -81,7 +81,7 @@ p <- gheatmap(
   ) +
   ggtitle("Toxin A - Low Stringency")
 
-ggsave("figs/ToxinA_LowStringency.png", p)
+ggsave("figs/ToxinA_LowStringency.pdf", p)
 
 # TOXIN B - HIGH STRINGENCY -------------------------------------------------
 
@@ -104,7 +104,7 @@ p <- gheatmap(
   ) +
   ggtitle("Toxin B - High Stringency")
 
-ggsave("figs/ToxinB_HighStringency.png", p)
+ggsave("figs/ToxinB_HighStringency.pdf", p)
 
 # TOXIN B - LOW STRINGENCY -------------------------------------------------
 
@@ -126,4 +126,4 @@ p <- gheatmap(
   ) +
   ggtitle("Toxin B - Low Stringency")
 
-ggsave("figs/ToxinB_LowStringency.png", p)
+ggsave("figs/ToxinB_LowStringency.pdf", p)
