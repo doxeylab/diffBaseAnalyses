@@ -63,17 +63,17 @@ ggsave("figs/ToxinA_HighStringency.pdf", p)
 
 # TOXIN A - LOW STRINGENCY -------------------------------------------------
 
-tipsA1 <- md2A
-tipsA1$ToxinSubtype[tipsA1$PercentIdentity < 99] <- "Incomplete"
-tipsA1 <- tipsA1[!is.na(tipsA1$Assembly), ]
-tipsA1 <- data.frame(
-  row.names = tipsA1$Assembly,
-  SubToxin = tipsA1$ToxinSubtype
+tipsA2 <- md2A
+tipsA2$ToxinSubtype[tipsA2$PercentIdentity < 99] <- "Incomplete"
+tipsA2 <- tipsA2[!is.na(tipsA2$Assembly), ]
+tipsA2 <- data.frame(
+  row.names = tipsA2$Assembly,
+  SubToxin = tipsA2$ToxinSubtype
 )
 
 p <- gheatmap(
   ggtree(tree, branch.length = "none", layout = "circular"),
-  tipsA1, offset = 0.5, width = 0.1, colnames = FALSE, legend_title = "Toxin A"
+  tipsA2, offset = 0.5, width = 0.1, colnames = FALSE, legend_title = "Toxin A"
 ) +
   scale_fill_manual(
     name = "Toxin A",
@@ -96,10 +96,10 @@ tipsB1 <- data.frame(
 
 p <- gheatmap(
   ggtree(tree, branch.length = "none", layout = "circular"),
-  tipsB1, offset = 0.5, width = 0.1, colnames = FALSE, legend_title = "Toxin A"
+  tipsB1, offset = 0.5, width = 0.1, colnames = FALSE, legend_title = "Toxin B"
 ) +
   scale_fill_manual(
-    name = "Toxin A",
+    name = "Toxin B",
     values = c(cols[1:9], "#000000", cols[10], "#999999")
   ) +
   ggtitle("Toxin B - High Stringency")
@@ -108,22 +108,69 @@ ggsave("figs/ToxinB_HighStringency.pdf", p)
 
 # TOXIN B - LOW STRINGENCY -------------------------------------------------
 
-tipsB1 <- md2B
-tipsB1$ToxinSubtype[tipsB1$PercentIdentity < 99] <- "Incomplete"
-tipsB1 <- tipsB1[!is.na(tipsB1$Assembly), ]
-tipsB1 <- data.frame(
-  row.names = tipsB1$Assembly,
-  SubToxin = tipsB1$ToxinSubtype
+tipsB2 <- md2B
+tipsB2$ToxinSubtype[tipsB2$PercentIdentity < 99] <- "Incomplete"
+tipsB2 <- tipsB2[!is.na(tipsB2$Assembly), ]
+tipsB2 <- data.frame(
+  row.names = tipsB2$Assembly,
+  SubToxin = tipsB2$ToxinSubtype
 )
 
 p <- gheatmap(
   ggtree(tree, branch.length = "none", layout = "circular"),
-  tipsB1, offset = 0.5, width = 0.1, colnames = FALSE, legend_title = "Toxin A"
+  tipsB2, offset = 0.5, width = 0.1, colnames = FALSE, legend_title = "Toxin B"
 ) +
   scale_fill_manual(
-    name = "Toxin A",
+    name = "Toxin B",
     values = c(cols[1:9], "#000000", cols[10])
   ) +
   ggtitle("Toxin B - Low Stringency")
 
 ggsave("figs/ToxinB_LowStringency.pdf", p)
+
+# TOXIN A + B - HIGH STRINGENCY -------------------------------------------------
+
+p <- gheatmap(
+  ggtree(tree, branch.length = "none", layout = "circular"),
+  tipsA1, offset = 0.5, width = 0.1, colnames = FALSE, legend_title = "Toxin A"
+) +
+  scale_fill_manual(
+    name = "Toxin A",
+    values = c(cols[c(2, 4, 6, 8, 10)], "#000000", "#999999")
+  )
+
+p <- gheatmap(
+  p + new_scale_fill(),
+  tipsB1, offset = 5, width = 0.1, colnames = FALSE, legend_title = "Toxin B"
+) +
+  scale_fill_manual(
+    name = "Toxin B",
+    values = c(cols[1:9], "#000000", cols[10], "#999999")
+  ) +
+  ggtitle("Toxin A + B - High Stringency")
+
+ggsave("figs/ToxinAB_HighStringency.pdf", p)
+
+# TOXIN A + B - LOW STRINGENCY -------------------------------------------------
+
+p <- gheatmap(
+  ggtree(tree, branch.length = "none", layout = "circular"),
+  tipsA2, offset = 0.5, width = 0.1, colnames = FALSE, legend_title = "Toxin A"
+) +
+  scale_fill_manual(
+    name = "Toxin A",
+    values = c(cols[c(2, 4, 6, 8, 10)], "#000000", "#999999")
+  )
+
+p <- gheatmap(
+  p + new_scale_fill(),
+  tipsB2, offset = 5, width = 0.1, colnames = FALSE, legend_title = "Toxin B"
+) +
+  scale_fill_manual(
+    name = "Toxin B",
+    values = c(cols[1:9], "#000000", cols[10], "#999999")
+  ) +
+  ggtitle("Toxin A + B - High Stringency")
+
+ggsave("figs/ToxinAB_LowStringency.pdf", p)
+
