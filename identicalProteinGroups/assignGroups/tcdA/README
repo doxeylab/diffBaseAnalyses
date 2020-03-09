@@ -1,0 +1,19 @@
+#get data for ALL NCBI homologs
+cp ../../../OriginalData/TcdA/tcda-allBLASThits.fa .
+
+
+#get reference DB of labeled toxin types
+cp ../../../SRA-BLAST/tcdA/ncbi_plus_sra_tcda_edited.fa .
+#split out just the NCBI seqs
+perl split.pl ncbi_plus_sra_tcda_edited.fa SRA >ncbi.ref.fa
+
+
+#make blast db for ref db
+makeblastdb -in ncbi.ref.fa -dbtype 'prot'
+
+#run BLAST
+blastp -outfmt "6" -query tcda-allBLASThits.fa -db ncbi.ref.fa >blast.out
+
+#parse BLAST output to classify
+#parameter introduced in .pl file to distinguish partial versus complete sequences
+perl parseBLASToutput.pl blast.out | sort -k3 -n -r > tcda-allBLASThits.classified.txt
