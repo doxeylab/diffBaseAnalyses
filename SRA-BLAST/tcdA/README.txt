@@ -17,9 +17,20 @@ perl parseBLASToutput.pl tcda-blast.out >sra-vs-ncbi.txt
 
 perl relabel_novelSRAs.pl novelSRAs-tcda.txt tcda-sra-1-1874.fa >novelSRAs-tcda.fa
 
-#manually decide on labels for the ?
+#will now manually decide on labels for the ?
 
 cat novelSRAs-tcda.fa tcda-ncbi.fa >ncbi_plus_sra_tcda.fa
+
+#inspect alignment, build tree and decide on new labels
+
+# SRA_TcdA_SRS1496955_3432.A/1-1874   -- assigned A
+# SRA_TcdA_SRS1486236_3725.?/1-1874   -- assigned B
+# SRA_TcdA_SRS1486256_3715.?/1-1874   -- assigned B
+# SRA_TcdA_SRS1377248_3700.?/1-1874   -- assigned new label G
+# SRA_TcdA_SRS1486661_3824.?/1-1874   -- assigned new label H
+
+#removed five SRAs based on 100% redundancy and assigned labels above to unclassified "?" SRA sequence
+ncbi_plus_sra_tcda_edited.fa
 
 
 

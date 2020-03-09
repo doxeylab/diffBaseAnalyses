@@ -1,4 +1,4 @@
-$threshold = 99.5;
+$threshold = 99.7;
 
 open FILE,$ARGV[0];
 
