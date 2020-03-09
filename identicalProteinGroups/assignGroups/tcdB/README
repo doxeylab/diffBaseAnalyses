@@ -1,0 +1,17 @@
+#get data for ALL NCBI homologs
+cp ../../../OriginalData/TcdB/tcdb-allBLASThits.fa .
+
+#get reference DB of labeled toxin types
+cp ../../../SRA-BLAST/tcdB/ncbi_plus_sra_tcdb.muscle.final.afa .
+
+#split out just the NCBI seqs
+perl split.pl ncbi_plus_sra_tcdb.muscle.final.afa SRA >ncbi.ref.fa
+
+#make blast db for ref db
+makeblastdb -in ncbi.ref.fa -dbtype 'prot'
+
+#run BLAST
+blastp -outfmt "6" -query tcdb-allBLASThits.fa -db ncbi.ref.fa >blast.out
+
+#parse output to classify sequences
+perl parseBLASToutput.pl blast.out | sort -k3 -n -r > tcdb-allBLASThits.classified.txt
