@@ -32,5 +32,10 @@ cat novelSRAs-tcda.fa tcda-ncbi.fa >ncbi_plus_sra_tcda.fa
 #removed five SRAs based on 100% redundancy and assigned labels above to unclassified "?" SRA sequence
 ncbi_plus_sra_tcda_edited.fa
 
+#built tree in R
 
+aln <- read.alignment("ncbi_plus_sra_tcda.fa","fasta")
+tree <- bionj(dist.alignment(aln,matrix="similarity"))
+tree <- ladderize(midpoint.root(tree))
+write.tree(tree,file="~/Downloads/tcda_ncbiAndSRA.newick")
 
