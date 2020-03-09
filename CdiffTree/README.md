@@ -1,10 +1,10 @@
 # _C difficile_ assemblies: mapping toxin groups
 
-## Dependencies
+## R Package Dependencies
 
 ```r
 install.packages("BiocManager")
-BiocManager::install(c("bjmt/noNA", "ggtree", "ggnewscale", "readr", "dplyr"))
+BiocManager::install(c("ggtree", "ggnewscale", "readr", "dplyr"))
 ```
 
 ## Make the trees

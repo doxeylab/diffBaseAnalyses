@@ -1,5 +1,4 @@
 library(ggtree)
-library(noNA)
 library(ggnewscale)
 
 SEQ_NAMES_A <- unlist(readRDS("ALL-names_A.RDS"))
