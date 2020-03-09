@@ -1,0 +1,3 @@
+#relabel seqs like this
+perl ../labelSeqs.pl groupB.fa B >groupB.relabeled.fa
+
