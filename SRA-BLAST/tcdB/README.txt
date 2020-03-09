@@ -38,3 +38,8 @@ aln <- read.alignment("ncbi_plus_sra_tcdb.muscle.final.afa","FASTA")
 tree <- bionj(dist.alignment(aln,matrix="similarity"))
 tree <- ladderize(midpoint.root(tree))
 write.tree(tree,file="~/Downloads/tcdb.newick")
+
+
+## FINAL FILES produced for diffBase
+ncbi_plus_sra_tcdb.muscle.final.afa
+tcdb.newick

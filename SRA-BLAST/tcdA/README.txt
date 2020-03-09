@@ -39,3 +39,8 @@ tree <- bionj(dist.alignment(aln,matrix="similarity"))
 tree <- ladderize(midpoint.root(tree))
 write.tree(tree,file="~/Downloads/tcda_ncbiAndSRA.newick")
 
+
+#FINAL FILES produced for diffBASE
+ncbi_plus_sra_tcda_edited.fa
+tcda_ncbiAndSRA.newick
+
