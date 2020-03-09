@@ -4,7 +4,7 @@ cp ../../OriginalData/TcdA/tcdA_relabeled_1-1874.afa tcda-ncbi.fa
 makeblastdb -in tcda-ncbi.fa -dbtype 'prot'
 
 #BLAST SRA sequences against NCBI refs
-blastp -outfmt "6" -query tcda-sra.fa -db tcda-ncbi.fa >tcdb-blast.out
+blastp -outfmt "6" -query tcda-sra.fa -db tcda-ncbi.fa >tcda-blast.out
 
 perl parseBLASToutput.pl tcda-blast.out >sra-vs-ncbi.txt
 
