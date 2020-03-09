@@ -1,12 +1,14 @@
-# contains code for identifying novel SRAs compared to NCBI ref DB, assigning labels, etc.
+# Analysis of SRA vs NCBI-ref TcdA and TcdB sequences
 
-#Files produced for diffBase
+This folder contains code for identifying novel SRAs compared to NCBI ref DB, assigning labels, etc.
 
-##TcdA
+## Files produced for diffBase
+
+### TcdA
 * ncbi_plus_sra_tcda_edited.fa
 * tcda_ncbiAndSRA.newick
 
-##TcdB
+### TcdB
 * ncbi_plus_sra_tcdb.muscle.final.afa
 * tcdb.newick
 
