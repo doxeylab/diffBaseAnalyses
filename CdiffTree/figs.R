@@ -1,12 +1,6 @@
 library(ggtree)
 library(ggnewscale)
 
-SEQ_NAMES_A <- unlist(readRDS("ALL-names_A.RDS"))
-SEQ_NAMES_B <- unlist(readRDS("ALL-names_B.RDS"))
-
-names(SEQ_NAMES_A) <- gsub("^[A-Z][.]", "", names(SEQ_NAMES_A))
-names(SEQ_NAMES_B) <- gsub("^[A-Z][.]", "", names(SEQ_NAMES_B))
-
 mdA <- readr::read_delim(
   "tcda-allBLASThits.classified.txt", " ", col_names = FALSE
 )
