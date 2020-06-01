@@ -1,17 +1,11 @@
 library(ggtree)
 library(ggnewscale)
 
-SEQ_NAMES_A <- unlist(readRDS("ALL-names_A.RDS"))
-SEQ_NAMES_B <- unlist(readRDS("ALL-names_B.RDS"))
-
-names(SEQ_NAMES_A) <- gsub("^[A-Z][.]", "", names(SEQ_NAMES_A))
-names(SEQ_NAMES_B) <- gsub("^[A-Z][.]", "", names(SEQ_NAMES_B))
-
 mdA <- readr::read_delim(
-  "tcda-allBLASThits.classified.txt", " ", col_names = FALSE
+  "data/tcda-allBLASThits.classified.txt", " ", col_names = FALSE
 )
 mdB <- readr::read_delim(
-  "tcdb-allBLASThits.classified.txt", " ", col_names = FALSE
+  "data/tcdb-allBLASThits.classified.txt", " ", col_names = FALSE
 )
 
 mdA[[1]] <- vapply(strsplit(mdA[[1]], ".", fixed = TRUE), function(x) x[1], character(1))
@@ -20,9 +14,9 @@ mdB[[1]] <- vapply(strsplit(mdB[[1]], ".", fixed = TRUE), function(x) x[1], char
 colnames(mdA) <- c("Acc", "ToxinSubtype", "PercentIdentity", "Length", "Status")
 colnames(mdB) <- c("Acc", "ToxinSubtype", "PercentIdentity", "Length", "Status")
 
-tree <- ape::read.tree("genomeTree.corrected.nwk")
+tree <- ape::read.tree("data/genomeTree.corrected.nwk")
 
-md <- readr::read_tsv("ipg.txt")
+md <- readr::read_tsv("data/ipg.txt")
 md <- md[!is.na(md$Assembly), ]
 md$Assembly <- vapply(strsplit(md$Assembly, ".", fixed = TRUE), function(x) x[1], character(1))
 md$Acc <- vapply(strsplit(md$Acc, ".", fixed = TRUE), function(x) x[1], character(1))
